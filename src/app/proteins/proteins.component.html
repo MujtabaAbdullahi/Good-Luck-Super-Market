@@ -1,0 +1,76 @@
+
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <!-- Brand -->
+    <a class="navbar-brand" href="#">Good Luck Super Market</a>
+    <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <!-- Links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Products</a>
+      </li>
+
+      <!-- Dropdown -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+          Select Product
+        </a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="#">Fruit</a>
+          <a class="dropdown-item" href="#">Vegetable</a>
+          <a class="dropdown-item" href="#">Nut</a>
+        </div>
+      </li>
+    </ul>
+
+    </div>
+
+  </nav>
+  <div class="container text-center mt-5">
+    <h1 class="text-info">Products List</h1>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <table class="table text-center">
+          <thead class="thead-dark">
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Image</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let info of proteininfo">
+              <td>{{ info.id }}</td>
+              <td>{{ info.name }}</td>
+              <td> <img [src]="info.image" style="width: 50px;"></td>
+              <td>{{ info.price | number }} Afg</td>
+              <td>
+                <i class="fa fa-minus-square" style="cursor: pointer;" (click)="DecrementQ(info.id)"></i>
+                {{ info.quantity }}
+                <i class="fa fa-plus-square" style="cursor: pointer;" (click)="IncrementQ(info.id)"></i>
+              </td>
+              <td>{{ info.price * info.quantity |number }} Afg</td>
+
+            </tr>
+            <tr>
+              <td class="text-right"  colspan="5">GrandTotal:</td>
+              <td>{{ GrandTotal() | number }} Afg</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
