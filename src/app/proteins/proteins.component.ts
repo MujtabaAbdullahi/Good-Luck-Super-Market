@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Entity, ProteinsService } from './proteins.service';
+
 
 @Component({
   selector: 'app-proteins',
@@ -8,9 +9,18 @@ import { Entity, ProteinsService } from './proteins.service';
 })
 export class ProteinsComponent implements OnInit {
   public proteininfo : Entity[];
+  public infomessage : string ="This super market is for shopping  all kinds of proteins";
+  public showTime : string= new Date().toLocaleTimeString();
 
   constructor(proteinservice : ProteinsService) {
     this.proteininfo= proteinservice.proteninfo;
+    this.updateTime();
+  }
+
+  updateTime(): void{
+    setInterval(()=>{
+      this.showTime= new Date().toLocaleTimeString();
+    },1000);
   }
 
   ngOnInit(): void {

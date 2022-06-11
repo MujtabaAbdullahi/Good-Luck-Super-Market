@@ -4,11 +4,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProteinsComponent } from './proteins/proteins.component';
 import { ProteinsService } from './proteins/proteins.service';
+import { ProteinsPipePipe } from './ProteinsPipe/proteins-pipe.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProteinsComponent,
+    ProteinsPipePipe,
   ],
   imports: [
     BrowserModule,

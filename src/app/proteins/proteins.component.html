@@ -29,6 +29,9 @@
           <a class="dropdown-item" href="#">Nut</a>
         </div>
       </li>
+      <li class="nav-item" >
+        <a class="nav-link" style="margin: auto; margin-right: 0px;" href="#">{{ showTime }}</a>
+      </li>
     </ul>
 
     </div>
@@ -65,12 +68,18 @@
               <td>{{ info.price * info.quantity |number }} Afg</td>
 
             </tr>
-            <tr>
+            <tr class="bg-dark text-white">
               <td class="text-right"  colspan="5">GrandTotal:</td>
               <td>{{ GrandTotal() | number }} Afg</td>
             </tr>
           </tbody>
         </table>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12">
+        {{ infomessage | proteinsPipe: 50 }}<br>
       </div>
     </div>
   </div>
